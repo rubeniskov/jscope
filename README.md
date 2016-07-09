@@ -1,0 +1,2 @@
+# jscope
+Inherital prototype clousure
