@@ -5,7 +5,7 @@ describe('JScope', function() {
     var first, second, third;
 
     beforeEach(function() {
-        first = new JScope();
+        first = JScope();
         second = first.$new();
         third = second.$new();
     });
