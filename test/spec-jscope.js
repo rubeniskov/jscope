@@ -66,4 +66,53 @@ describe('JScope', function() {
         expect(second.dog).to.not.exist;
         expect(third.dog).to.be.equal('guau');
     });
+
+    it('should have the parent values accessible by $$root and $parent ', function() {
+
+        expect(base.$$parent).to.not.exist;
+        expect(base.$$root).to.be.equal(base);
+        expect(base.foo).to.be.equal('foo');
+        expect(base.bar).to.be.equal('bar');
+        expect(base.wow).to.be.equal('wow');
+
+        expect(first.$$root).to.be.equal(base);
+        expect(first.$$root.foo).to.be.equal('foo');
+
+        expect(first.$$parent).to.be.equal(base);
+        expect(first.$$parent.foo).to.be.equal('foo');
+
+        expect(first.foo).to.be.equal('oof');
+        expect(first.bar).to.be.equal('bar');
+        expect(first.wow).to.be.equal('wow');
+
+        expect(second.$$root).to.be.equal(base);
+        expect(second.$$root.foo).to.be.equal('foo');
+        expect(second.$$root.bar).to.be.equal('bar');
+
+        expect(second.$$parent).to.be.equal(first);
+        expect(second.$$parent.foo).to.be.equal('oof');
+        expect(second.$$parent.bar).to.be.equal('bar');
+
+        expect(second.foo).to.be.equal('oof');
+        expect(second.bar).to.be.equal('rab');
+
+        expect(third.$$root).to.be.equal(base);
+        expect(third.$$root.foo).to.be.equal('foo');
+        expect(third.$$root.bar).to.be.equal('bar');
+        expect(third.$$root.wow).to.be.equal('wow');
+
+        expect(third.$$parent.$$parent).to.be.equal(first);
+        expect(third.$$parent.$$parent.foo).to.be.equal('oof');
+        expect(third.$$parent.$$parent.bar).to.be.equal('bar');
+        expect(third.$$parent.$$parent.wow).to.be.equal('wow');
+
+        expect(third.$$parent).to.be.equal(second);
+        expect(third.$$parent.foo).to.be.equal('oof');
+        expect(third.$$parent.bar).to.be.equal('rab');
+        expect(third.$$parent.wow).to.be.equal('wow');
+
+        expect(third.foo).to.be.equal('oof');
+        expect(third.bar).to.be.equal('rab');
+        expect(third.wow).to.be.equal('owo');
+    });
 });
