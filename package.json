@@ -1,6 +1,6 @@
 
   "name": "jscope",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JScope is a inherital prototype factory.",
   "main": "index.js",
   "publishConfig": {
