@@ -1,8 +1,11 @@
-{
+
   "name": "jscope",
   "version": "0.0.2",
   "description": "JScope is a inherital prototype factory.",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
   "engines": {
     "node": ">=0.12"
   },
