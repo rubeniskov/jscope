@@ -17,6 +17,84 @@
 Motivation
 ==========
 
+Sometimes when you try write elegant code with fallback values you write something like this:
+
+```JavaScript
+
+  // The Common case
+
+  var foo = function(options){
+
+      // Ensure option value to prevent undefined value
+      options = options || {}; // !!WARNING This line do not force the value type, so if the object passed is not a plain object it will broke your code
+
+      /*************************************/
+      /* Default value fallback resolution */
+      /*************************************/
+
+      // Solved with ternary operator
+      options.bar  = options.bar ? options.bar : 'foo';
+
+      // Solved with if statement
+      if(!options.bar)
+        options.bar  = 'foo';
+
+      // Solved with stream conditional operator
+      options.bar  = options.bar || 'foo';
+
+      return options;
+  }
+
+```
+Let's do it easier!!
+
+```JavaScript
+
+  // The JSCope case
+
+  var jscope = require('jscope');
+
+  var foo = function(options){
+      options = jscope({
+          'bar': 'foo',
+          'foo': 'bar'
+      }).$new(options);
+
+      return options;
+  }
+
+  var result = foo({
+      'frog': 'croac!',
+      'bar': 'mooo'
+  });
+
+  // 'croac'
+  console.log(result.frog);
+  // 'bar'
+  console.log(result.foo);
+  // 'mooo'
+  console.log(result.bar);
+  // 'foo'
+  console.log(result.$$root.bar);
+  // 'foo'
+  console.log(result.$$parent.bar);
+
+  var child = result.$new({
+      'bar': 'wow!!'
+  });
+
+  // 'foo'
+  console.log(child.$$root.bar);
+  // 'foo'
+  console.log(child.$$parent.$$parent.bar);
+  // 'mooo'
+  console.log(child.$$parent.bar);
+  // 'wow!!'
+  console.log(child.bar);
+
+```
+
+As you can see you keep the data with persistence, and it's accesible by $$parent or $$root nodes, so your data never were so sure!!
 
 [![NPM][npm-img]][npm-url]
 [![GRID][coverage-img]][coverage-url]
@@ -26,16 +104,6 @@ Installation
 
 Install with `npm install jscope --save`.
 
-Usage
-=====
-
-To use, add the `require` node module:
-
-```JavaScript
-
-    const jscope = require('jscope');
-
-```
 
 [![WTF][wtfpl-img]][wtfpl-url]
 
