@@ -14,6 +14,9 @@
 
 [JScope][site-url]
 
+[![NPM][npm-img]][npm-url]
+[![GRID][coverage-img]][coverage-url]
+
 Motivation
 ==========
 
@@ -95,9 +98,6 @@ Let's do it easier!!
 ```
 
 As you can see you keep the data with persistence, and it's accesible by $$parent or $$root nodes, so your data never were so sure!!
-
-[![NPM][npm-img]][npm-url]
-[![GRID][coverage-img]][coverage-url]
 
 Installation
 ============
