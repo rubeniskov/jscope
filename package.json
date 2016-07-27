@@ -13,7 +13,7 @@
     "test": "test"
   },
   "dependencies": {
-    "nutol": "^0.2.0"
+    "nutol": "^0.2.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -22,8 +22,7 @@
     "grunt-bump": "^0.8.0",
     "grunt-npm": "0.0.2",
     "istanbul": "^0.4.3",
-    "mocha": "^2.4.5",
-    "nutol": "^0.2.2"
+    "mocha": "^2.4.5"
   },
   "scripts": {
     "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec && node_modules/codecov/bin/codecov"
