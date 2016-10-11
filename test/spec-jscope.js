@@ -51,7 +51,7 @@ describe('JScope', function() {
         expect(second.wow).to.be.equal('bar');
         expect(third.wow).to.be.equal('wow');
     });
-
+    
     it('should define the values in order of heritance', function() {
         first.frog = 'croac';
         expect(first.frog).to.be.equal('croac');
@@ -114,5 +114,17 @@ describe('JScope', function() {
         expect(third.foo).to.be.equal('oof');
         expect(third.bar).to.be.equal('rab');
         expect(third.wow).to.be.equal('owo');
+    });
+
+    it('should get values', function() {
+
+        first.dog = 'waaf'
+        first.cat = 'meow'
+        second.dog = 'woof'
+        second.sheep = 'baa'
+        third.bird = 'beep'
+        third.frog = 'croak'
+
+
     });
 });
