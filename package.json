@@ -13,7 +13,7 @@
     "test": "test"
   },
   "dependencies": {
-    "nutol": "^0.2.9"
+    "nutol": "^0.2.10"
   },
   "devDependencies": {
     "chai": "^3.5.0",
