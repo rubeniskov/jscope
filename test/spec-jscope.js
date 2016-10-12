@@ -10,13 +10,13 @@ describe('JScope', function() {
             'bar': 'bar',
             'wow': 'wow'
         });
-        first = base.$new({
+        first = base.new({
             'foo': 'oof'
         });
-        second = first.$new({
+        second = first.new({
             'bar': 'rab'
         });
-        third = second.$new({
+        third = second.new({
             'wow': 'owo'
         });
     });
@@ -51,7 +51,7 @@ describe('JScope', function() {
         expect(second.wow).to.be.equal('bar');
         expect(third.wow).to.be.equal('wow');
     });
-    
+
     it('should define the values in order of heritance', function() {
         first.frog = 'croac';
         expect(first.frog).to.be.equal('croac');
@@ -124,7 +124,5 @@ describe('JScope', function() {
         second.sheep = 'baa'
         third.bird = 'beep'
         third.frog = 'croak'
-
-
     });
 });
